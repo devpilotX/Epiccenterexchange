@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe to Crypto Newsletter | Daily News & Reviews - Epicenter Exchange</title>
+    <meta name="description" content="Join 10,000+ crypto traders getting daily news, exchange reviews, and market analysis. Free cryptocurrency newsletter with actionable insights.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://epicenterexchange.com/newsletter.html">
+    <meta name="google-adsense-account" content="ca-pub-6484525483464374">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6484525483464374" crossorigin="anonymous"></script>
+    <meta name="google-site-verification" content="irYegN884cx4U-m412v_pifdwAVcjKDNjNp2UQOje6s">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Epicenter Exchange Newsletter","description":"Daily cryptocurrency news, reviews, and market analysis delivered to your inbox.","publisher":{"@type":"Organization","name":"Epicenter Exchange"}}</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .nl-hero{text-align:center;padding:60px 0 80px;}
+        .nl-hero h1{font-size:2.8rem;color:var(--text-white);margin-bottom:16px;}
+        .nl-hero-sub{font-size:1.15rem;color:var(--text-secondary);max-width:600px;margin:0 auto 40px;}
+        .signup-card{background:var(--bg-secondary);max-width:500px;margin:0 auto;padding:32px;border-radius:var(--radius-lg);border:1px solid var(--border);box-shadow:0 10px 40px rgba(0,0,0,.3);}
+        .form-group{margin-bottom:20px;text-align:left;}
+        .form-label{font-weight:600;display:block;margin-bottom:8px;font-size:.9rem;color:var(--text-primary);}
+        .form-input{width:100%;padding:14px;border:1px solid var(--border);border-radius:var(--radius);font-size:1rem;background:var(--bg-tertiary);color:var(--text-white);transition:.2s;}
+        .form-input:focus{border-color:var(--accent-gold);outline:none;}
+        .freq-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
+        .freq-option{border:1px solid var(--border);padding:10px;border-radius:var(--radius);cursor:pointer;font-size:.85rem;display:flex;align-items:center;gap:8px;color:var(--text-secondary);transition:.2s;background:var(--bg-tertiary);}
+        .freq-option:hover{border-color:var(--accent-gold);}
+        .freq-option input{accent-color:var(--accent-gold);}
+        .consent-check{font-size:.8rem;color:var(--text-muted);margin-bottom:20px;display:flex;align-items:flex-start;gap:8px;}
+        .consent-check a{color:var(--text-secondary);}
+        .btn-submit{width:100%;padding:15px;background:var(--accent-gold);color:var(--bg-primary);border:none;border-radius:var(--radius);font-size:1.1rem;font-weight:700;cursor:pointer;transition:.2s;}
+        .btn-submit:hover{background:var(--accent-gold-hover);transform:translateY(-2px);}
+        .trust-line{margin-top:15px;font-size:.85rem;color:var(--text-muted);display:flex;justify-content:center;gap:20px;}
+        .trust-line i{color:var(--accent-gold);}
+        .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin-top:40px;}
+        .benefit-item{display:flex;gap:16px;align-items:start;}
+        .benefit-icon{width:50px;height:50px;background:rgba(240,185,11,.1);color:var(--accent-gold);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
+        .benefit-content h3{color:var(--text-white);font-size:1.05rem;margin-bottom:4px;}
+        .benefit-content p{font-size:.9rem;color:var(--text-secondary);}
+        .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:30px;}
+        .testi-card{background:var(--bg-secondary);padding:24px;border-radius:var(--radius-lg);border:1px solid var(--border);}
+        .testi-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+        .testi-avatar{width:44px;height:44px;border-radius:50%;background:var(--bg-tertiary);display:flex;align-items:center;justify-content:center;color:var(--accent-gold);font-weight:700;font-size:1.1rem;}
+        .testi-name{color:var(--text-white);font-weight:600;}
+        .testi-role{font-size:.8rem;color:var(--text-muted);}
+        .testi-quote{font-style:italic;color:var(--text-secondary);font-size:.95rem;line-height:1.6;}
+        .archive-list{list-style:none;padding:0;max-width:600px;margin:20px auto 0;}
+        .archive-item{border-bottom:1px solid var(--border);padding:14px 0;display:flex;justify-content:space-between;align-items:center;}
+        .archive-item a{color:var(--text-primary);font-size:.95rem;}
+        .archive-item a:hover{color:var(--accent-gold);}
+        .archive-date{font-size:.85rem;color:var(--text-muted);}
+        .success-message{display:none;text-align:center;padding:40px 20px;}
+        .success-icon{font-size:4rem;color:var(--accent-gold);margin-bottom:20px;}
+        @media(max-width:768px){.nl-hero h1{font-size:2rem;}.freq-grid{grid-template-columns:1fr;}}
+    </style>
+</head>
+<body>
+    <div class="ticker-wrap"><div class="ticker-content" id="tickerContent"><div class="ticker-item"><span class="ticker-name">Loading live prices...</span></div></div></div>
+    <header class="site-header"><div class="container header-inner">
+        <a href="index.html" class="logo"><i class="fa-solid fa-chart-line"></i> Epicenter<span>Exchange</span></a>
+        <nav class="nav-links"><a href="index.html">Home</a><a href="market.html">Market</a><a href="compare.html">Compare</a><a href="news.html">News</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+        <div class="header-actions"><a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en-IN&ref=GRO_28502_CGKN7&utm_source=default" target="_blank" rel="noopener sponsored" class="btn btn-gold btn-sm"><i class="fa-solid fa-arrow-up-right-from-square"></i> Join Binance</a><button class="mobile-toggle" id="mobileToggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button></div>
+    </div></header>
+    <div class="mobile-menu" id="mobileMenu"><div class="mobile-menu-header"><div class="logo"><i class="fa-solid fa-chart-line"></i> Epicenter<span>Exchange</span></div><button class="mobile-menu-close" id="mobileClose"><i class="fa-solid fa-xmark"></i></button></div><div class="mobile-menu-links"><a href="index.html">Home</a><a href="market.html">Market</a><a href="compare.html">Compare</a><a href="news.html">News</a><a href="about.html">About</a><a href="contact.html">Contact</a></div><div class="mobile-menu-cta"><a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en-IN&ref=GRO_28502_CGKN7&utm_source=default" target="_blank" rel="noopener sponsored" class="btn btn-gold">Join Binance</a></div></div>
+
+    <section class="page-hero nl-hero"><div class="container">
+        <h1>Join 10,000+ Crypto Traders</h1>
+        <p class="nl-hero-sub">Get daily crypto news, unbiased exchange reviews, and expert trading tips delivered directly to your inbox. Free forever.</p>
+        <div class="signup-card" id="signupCard">
+            <form id="newsletterSignupForm">
+                <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" name="email" placeholder="Enter your best email" required></div>
+                <div class="form-group">
+                    <label class="form-label">I want to receive:</label>
+                    <div class="freq-grid">
+                        <label class="freq-option"><input type="checkbox" checked value="daily"> Daily Digest</label>
+                        <label class="freq-option"><input type="checkbox" checked value="weekly"> Weekly Roundup</label>
+                        <label class="freq-option"><input type="checkbox" value="breaking"> Breaking Alerts</label>
+                        <label class="freq-option"><input type="checkbox" value="offers"> Exclusive Offers</label>
+                    </div>
+                </div>
+                <label class="consent-check"><input type="checkbox" required><span>I agree to receive emails from Epicenter Exchange. I can unsubscribe at any time. <a href="privacy-policy.html">Privacy Policy</a>.</span></label>
+                <button type="submit" class="btn-submit">Subscribe Now</button>
+                <div class="trust-line"><span><i class="fa-solid fa-check"></i> No Spam</span><span><i class="fa-solid fa-check"></i> 100% Free</span><span><i class="fa-solid fa-lock"></i> Secure</span></div>
+            </form>
+        </div>
+        <div class="signup-card success-message" id="successMessage">
+            <i class="fa-solid fa-envelope-circle-check success-icon"></i>
+            <h2 style="color:var(--text-white);margin-bottom:12px;">You're on the list!</h2>
+            <p style="color:var(--text-secondary);margin-bottom:20px;">Check your inbox to confirm your subscription.</p>
+            <a href="index.html" class="btn btn-gold">Back to Home</a>
+        </div>
+    </div></section>
+
+    <div class="container"><div class="ad-container ad-leaderboard"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6484525483464374" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+    <section class="section-padding"><div class="container">
+        <div class="text-center"><h2 style="color:var(--text-white);font-size:2rem;">What You'll Get</h2><p style="color:var(--text-secondary);">More than just headlines. We provide context.</p></div>
+        <div class="benefits-grid">
+            <div class="benefit-item"><div class="benefit-icon"><i class="fa-solid fa-newspaper"></i></div><div class="benefit-content"><h3>Daily News Digest</h3><p>A concise summary of the market's biggest movers, read in 5 minutes or less.</p></div></div>
+            <div class="benefit-item"><div class="benefit-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div><div class="benefit-content"><h3>Exchange Reviews</h3><p>Deep dives into new and existing exchanges. We test fees, support, and security.</p></div></div>
+            <div class="benefit-item"><div class="benefit-icon"><i class="fa-solid fa-chart-line"></i></div><div class="benefit-content"><h3>Market Analysis</h3><p>Technical and fundamental analysis of Bitcoin, Ethereum, and trending altcoins.</p></div></div>
+            <div class="benefit-item"><div class="benefit-icon"><i class="fa-solid fa-graduation-cap"></i></div><div class="benefit-content"><h3>Beginner Guides</h3><p>Step-by-step tutorials on how to buy, sell, stake, and secure your crypto.</p></div></div>
+            <div class="benefit-item"><div class="benefit-icon"><i class="fa-solid fa-gift"></i></div><div class="benefit-content"><h3>Exclusive Offers</h3><p>Sign-up bonuses, fee discounts, and special promotions from top exchanges.</p></div></div>
+            <div class="benefit-item"><div class="benefit-icon"><i class="fa-solid fa-bolt"></i></div><div class="benefit-content"><h3>Breaking Alerts</h3><p>Be the first to know about major regulatory changes or market events.</p></div></div>
+        </div>
+    </div></section>
+
+    <section class="section-padding" style="background:var(--bg-secondary);"><div class="container">
+        <div class="text-center" style="margin-bottom:30px;"><h2 style="color:var(--text-white);">Trusted by Traders Worldwide</h2></div>
+        <div class="testi-grid">
+            <div class="testi-card"><div class="testi-header"><div class="testi-avatar">S</div><div><span class="testi-name">Sarah K.</span><br><span class="testi-role">Crypto Investor</span></div></div><p class="testi-quote">"Epicenter Exchange newsletters keep me updated without overwhelming my inbox. The exchange reviews saved me from high fees!"</p></div>
+            <div class="testi-card"><div class="testi-header"><div class="testi-avatar">M</div><div><span class="testi-name">Mike R.</span><br><span class="testi-role">Day Trader</span></div></div><p class="testi-quote">"The daily market snapshot is part of my morning routine now. Concise, accurate, and actually useful."</p></div>
+            <div class="testi-card"><div class="testi-header"><div class="testi-avatar">D</div><div><span class="testi-name">David L.</span><br><span class="testi-role">Blockchain Dev</span></div></div><p class="testi-quote">"I appreciate the objective tone. No hype, just facts. It's rare in this industry."</p></div>
+        </div>
+    </div></section>
+
+    <section class="section-padding"><div class="container">
+        <div class="text-center"><h2 style="color:var(--text-white);">Recent Editions</h2><p style="color:var(--text-secondary);">See what you've missed.</p></div>
+        <ul class="archive-list">
+            <li class="archive-item"><a href="#">Solana Breakpoint Summary & Market Analysis</a><span class="archive-date">Jan 24</span></li>
+            <li class="archive-item"><a href="#">Binance vs. Coinbase: Updated Fee Comparison</a><span class="archive-date">Jan 23</span></li>
+            <li class="archive-item"><a href="#">Regulatory Update: New Tax Rules for Crypto</a><span class="archive-date">Jan 20</span></li>
+            <li class="archive-item"><a href="#">Top 5 Altcoins to Watch in February</a><span class="archive-date">Jan 18</span></li>
+        </ul>
+    </div></section>
+
+    <section class="section-padding" style="background:var(--bg-secondary);"><div class="container">
+        <div class="text-center" style="margin-bottom:24px;"><h2 style="color:var(--text-white);">Frequently Asked Questions</h2></div>
+        <div class="faq-list" style="max-width:700px;margin:0 auto;">
+            <details class="faq-item"><summary>Is this newsletter really free?</summary><div class="faq-answer">Yes, 100%. We are supported by affiliate partnerships with exchanges, so we don't charge our readers.</div></details>
+            <details class="faq-item"><summary>How often will I receive emails?</summary><div class="faq-answer">It depends on your preference. Our Daily Digest sends every morning (Mon-Fri). The Weekly Roundup sends on Sundays. Breaking alerts are rare and only for major events.</div></details>
+            <details class="faq-item"><summary>Will you share my email address?</summary><div class="faq-answer">Never. We respect your privacy and will never sell or share your data with third parties.</div></details>
+            <details class="faq-item"><summary>Can I unsubscribe anytime?</summary><div class="faq-answer">Yes. Every email contains a one-click unsubscribe link at the bottom.</div></details>
+        </div>
+    </div></section>
+
+    <div class="container"><div class="ad-container ad-leaderboard"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6484525483464374" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+    <footer class="site-footer"><div class="container">
+        <div class="footer-disclosure"><strong>Affiliate Disclosure:</strong> Epicenter Exchange may receive compensation from featured exchanges. Cryptocurrency trading involves significant risk.</div>
+        <div class="footer-grid">
+            <div class="footer-brand"><div class="logo"><i class="fa-solid fa-chart-line"></i> Epicenter<span>Exchange</span></div><p>Your trusted source for crypto exchange reviews and market data.</p><div class="footer-social"><a href="#"><i class="fa-brands fa-x-twitter"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-linkedin-in"></i></a><a href="#"><i class="fa-brands fa-telegram"></i></a></div></div>
+            <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="market.html">Market</a></li><li><a href="compare.html">Compare</a></li><li><a href="news.html">News</a></li><li><a href="about.html">About</a></li></ul></div>
+            <div class="footer-col"><h4>Resources</h4><ul><li><a href="guide-template.html">Guides</a></li><li><a href="newsletter.html">Newsletter</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+            <div class="footer-col"><h4>Legal</h4><ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms.html">Terms</a></li><li><a href="sitemap.xml">Sitemap</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Epicenter Exchange. All rights reserved.</p><p>Market data by <a href="https://www.coingecko.com" target="_blank" rel="noopener" style="color:var(--accent-gold);">CoinGecko</a></p></div>
+    </div></footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('newsletterSignupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('.btn-submit');
+            btn.innerText = 'Subscribing...';
+            btn.disabled = true;
+            setTimeout(() => {
+                document.getElementById('signupCard').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

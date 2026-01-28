@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Cryptocurrency Prices & Market Data 2026 | Epicenter Exchange</title>
+    <meta name="description" content="Track live cryptocurrency prices for Bitcoin, Ethereum, and 100+ coins in real-time. Market data, volume, trends, charts updated every minute 2026.">
+    <meta name="keywords" content="live crypto prices, cryptocurrency market data, bitcoin price today, ethereum price, crypto market cap, coin tracker">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://epicenterexchange.com/market.html">
+    <meta name="google-adsense-account" content="ca-pub-6484525483464374">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6484525483464374" crossorigin="anonymous"></script>
+    <meta name="google-site-verification" content="irYegN884cx4U-m412v_pifdwAVcjKDNjNp2UQOje6s">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Live Crypto Market Data - Track 100+ Coins">
+    <meta property="og:description" content="Real-time cryptocurrency prices, market cap, and volume data.">
+    <meta property="og:url" content="https://epicenterexchange.com/market.html">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Cryptocurrency Market Data","description":"Live cryptocurrency prices and market data for 100+ coins.","publisher":{"@type":"Organization","name":"Epicenter Exchange"}}</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="ticker-wrap"><div class="ticker-content" id="tickerContent"><div class="ticker-item"><span class="ticker-name">Loading live prices...</span></div></div></div>
+    <header class="site-header"><div class="container header-inner">
+        <a href="index.html" class="logo">Epicenter<span>Exchange</span></a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a><a href="market.html" class="active">Market</a><a href="heatmap.html">Heatmap</a><a href="converter.html">Converter</a><a href="portfolio.html">Portfolio</a><a href="watchlist.html">Watchlist</a><a href="compare.html">Compare</a><a href="news.html">News</a><a href="about.html">About</a>
+        </nav>
+        <div class="header-actions">
+            <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en-IN&ref=GRO_28502_CGKN7&utm_source=default" target="_blank" rel="noopener sponsored" class="btn btn-gold btn-sm"><i class="fa-solid fa-arrow-up-right-from-square"></i> Join Binance</a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </div></header>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header"><div class="logo">Epicenter<span>Exchange</span></div><button class="mobile-menu-close" id="mobileClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button></div>
+        <div class="mobile-menu-links"><a href="index.html">Home</a><a href="market.html">Market Data</a><a href="heatmap.html">Heatmap</a><a href="converter.html">Converter</a><a href="portfolio.html">Portfolio</a><a href="watchlist.html">Watchlist</a><a href="compare.html">Compare</a><a href="news.html">News</a><a href="about.html">About</a></div>
+        <div class="mobile-menu-cta"><a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en-IN&ref=GRO_28502_CGKN7&utm_source=default" target="_blank" rel="noopener sponsored" class="btn btn-gold">Join Binance</a></div>
+    </div>
+    <section class="page-hero"><div class="container">
+        <div class="breadcrumbs"><a href="index.html">Home</a> &gt; <span>Market Data</span></div>
+        <h1>Live Cryptocurrency Market Data</h1>
+        <p>Real-time prices, market cap, volume, and 7-day trends for top 100 cryptocurrencies. Data refreshes every 60 seconds.</p>
+    </div></section>
+    <div class="container"><div class="ad-container ad-leaderboard"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6484525483464374" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+    <section class="section-padding">
+        <div class="container">
+            <div class="market-table-wrap">
+                <div class="market-table-header">
+                    <h3><i class="fa-solid fa-fire-flame-curved" style="color:var(--accent-gold);"></i> Top 100 Cryptocurrencies &mdash; <span id="coinCount">0</span> coins</h3>
+                    <div class="market-search"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search coins..." oninput="MarketData.search(this.value)"></div>
+                </div>
+                <div id="marketLoader" style="display:flex;align-items:center;justify-content:center;padding:60px;gap:12px;color:var(--text-muted);"><i class="fa-solid fa-spinner fa-spin fa-lg"></i> Loading market data...</div>
+                <div class="table-scroll">
+                    <table class="market-table">
+                        <thead><tr>
+                            <th onclick="MarketData.sort('market_cap_rank')" style="width:50px;">#</th>
+                            <th onclick="MarketData.sort('name')">Coin</th>
+                            <th onclick="MarketData.sort('current_price')" class="text-right">Price</th>
+                            <th onclick="MarketData.sort('price_change_percentage_24h')" class="text-right">24h %</th>
+                            <th onclick="MarketData.sort('price_change_percentage_7d_in_currency')" class="text-right">7d %</th>
+                            <th onclick="MarketData.sort('market_cap')" class="text-right">Market Cap</th>
+                            <th onclick="MarketData.sort('total_volume')" class="text-right">Volume (24h)</th>
+                            <th style="width:130px;">Last 7 Days</th>
+                        </tr></thead>
+                        <tbody id="marketTableBody"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="marketPagination"></div>
+            </div>
+        </div>
+    </section>
+    <div class="container"><div class="ad-container ad-responsive"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6484525483464374" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+    <section class="section-padding"><div class="container"><div class="binance-cta">
+        <h2><i class="fa-solid fa-gift" style="color:var(--accent-gold);"></i> Trade on the World's Largest Exchange</h2>
+        <p>Join Binance for the lowest fees, 350+ cryptocurrencies, and exclusive rewards.</p>
+        <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en-IN&ref=GRO_28502_CGKN7&utm_source=default" target="_blank" rel="noopener sponsored" class="btn btn-gold btn-lg"><i class="fa-solid fa-wallet"></i> Join Binance & Earn Rewards</a>
+        <div class="binance-features-row"><div class="binance-feature"><i class="fa-solid fa-check-circle"></i> 0.1% Trading Fees</div><div class="binance-feature"><i class="fa-solid fa-check-circle"></i> 350+ Coins</div><div class="binance-feature"><i class="fa-solid fa-check-circle"></i> Earn Staking Rewards</div></div>
+    </div></div></section>
+    <section class="section-padding newsletter-section"><div class="container text-center">
+        <h2 style="color:var(--text-white);font-size:2rem;">Get Daily Market Updates</h2>
+        <p style="color:var(--text-secondary);margin-bottom:0;">Join 50,000+ traders getting the latest crypto insights.</p>
+        <form class="newsletter-form"><input type="email" class="newsletter-input" placeholder="Enter your email address" required><button type="submit" class="btn btn-gold">Subscribe</button></form>
+    </div></section>
+    <footer class="site-footer"><div class="container">
+        <div class="footer-disclosure"><strong>Affiliate Disclosure:</strong> Epicenter Exchange may receive compensation from featured exchanges. Cryptocurrency trading involves significant risk.</div>
+        <div class="footer-grid">
+            <div class="footer-brand"><div class="logo"><i class="fa-solid fa-chart-line"></i> Epicenter<span>Exchange</span></div><p>Your trusted source for crypto exchange reviews, live market data, and expert analysis.</p><div class="footer-social"><a href="#"><i class="fa-brands fa-x-twitter"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-linkedin-in"></i></a><a href="#"><i class="fa-brands fa-telegram"></i></a></div></div>
+            <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="market.html">Market Data</a></li><li><a href="watchlist.html">Watchlist</a></li><li><a href="compare.html">Compare Exchanges</a></li><li><a href="news.html">Latest News</a></li></ul></div>
+            <div class="footer-col"><h4>Resources</h4><ul><li><a href="guide-template.html">Beginner Guides</a></li><li><a href="newsletter.html">Newsletter</a></li><li><a href="blog-post-template.html">Blog</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+            <div class="footer-col"><h4>Legal</h4><ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li><li><a href="sitemap.xml">Sitemap</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Epicenter Exchange. All rights reserved.</p><p>Market data by <a href="https://www.coingecko.com" target="_blank" rel="noopener" style="color:var(--accent-gold);">CoinGecko</a></p></div>
+    </div></footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <script src="js/main.js"></script>
+    <script src="js/alerts.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/fear-greed.js"></script>
+</body>
+</html>

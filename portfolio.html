@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptocurrency Portfolio Tracker | Epicenter Exchange</title>
+    <meta name="description" content="Track your cryptocurrency portfolio. Monitor holdings, calculate profit/loss, view real-time prices, and analyze your investments in one place.">
+    <meta name="keywords" content="portfolio tracker, crypto portfolio, bitcoin tracking, investment tracker, portfolio manager">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://epicenterexchange.com/portfolio.html">
+    <meta name="google-adsense-account" content="ca-pub-6484525483464374">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6484525483464374" crossorigin="anonymous"></script>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cryptocurrency Portfolio Tracker">
+    <meta property="og:description" content="Free portfolio tracker for Bitcoin, Ethereum, and all cryptocurrencies.">
+    <meta property="og:url" content="https://epicenterexchange.com/portfolio.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .portfolio-wrapper { display: grid; grid-template-columns: 1fr 320px; gap: 24px; }
+        .portfolio-header { background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .portfolio-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 24px; }
+        .portfolio-stat { background: var(--bg-tertiary); border-radius: 8px; padding: 16px; text-align: center; }
+        .portfolio-stat label { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 6px; }
+        .portfolio-stat value { display: block; font-size: 1.5rem; font-weight: 700; color: var(--accent-gold); }
+        .portfolio-positive { color: var(--green) !important; }
+        .portfolio-negative { color: var(--red) !important; }
+        .portfolio-table { background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+        .portfolio-table-header { display: grid; grid-template-columns: 150px 80px 80px 100px 100px 80px; gap: 12px; background: var(--bg-tertiary); padding: 12px; font-weight: 600; color: var(--accent-gold); font-size: 0.85rem; }
+        .portfolio-row { display: grid; grid-template-columns: 150px 80px 80px 100px 100px 80px; gap: 12px; padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.03); align-items: center; }
+        .portfolio-row:last-child { border-bottom: none; }
+        .portfolio-row-label { color: var(--text-secondary); font-size: 0.9rem; }
+        .portfolio-row-value { color: var(--text-white); font-weight: 600; }
+        .portfolio-actions { display: flex; gap: 6px; }
+        .portfolio-actions button { padding: 6px 12px; font-size: 0.8rem; border: none; border-radius: 4px; cursor: pointer; background: var(--bg-tertiary); color: var(--text-secondary); transition: all 0.3s; }
+        .portfolio-actions button:hover { background: var(--accent-gold); color: #0b1426; }
+        .portfolio-empty { text-align: center; padding: 40px 20px; color: var(--text-muted); }
+        .portfolio-btn { padding: 12px 24px; background: var(--accent-gold); color: #0b1426; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 1rem; transition: all 0.3s; width: 100%; }
+        .portfolio-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(240, 185, 11, 0.3); }
+        .portfolio-modal { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.7); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+        .portfolio-modal.active { display: flex; }
+        .portfolio-modal-content { background: var(--bg-card); border-radius: 12px; padding: 24px; width: 100%; max-width: 400px; border: 1px solid rgba(255, 255, 255, 0.06); }
+        .portfolio-modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .portfolio-modal-header h3 { margin: 0; color: var(--text-white); }
+        .portfolio-modal-close { background: none; border: none; color: var(--text-secondary); font-size: 1.5rem; cursor: pointer; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 6px; font-weight: 600; }
+        .form-group input, .form-group select { width: 100%; padding: 10px; background: var(--bg-tertiary); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; color: var(--text-white); font-size: 0.95rem; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent-gold); }
+        @media (max-width: 1024px) { .portfolio-wrapper { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) {
+            .portfolio-table-header, .portfolio-row { grid-template-columns: 1fr; }
+            .portfolio-summary { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="ticker-wrap"><div class="ticker-content" id="tickerContent"></div></div>
+    <header class="site-header"><div class="container header-inner">
+        <a href="index.html" class="logo">Epicenter<span>Exchange</span></a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a><a href="market.html">Market</a><a href="heatmap.html">Heatmap</a><a href="converter.html">Converter</a><a href="portfolio.html" class="active">Portfolio</a><a href="watchlist.html">Watchlist</a><a href="compare.html">Compare</a><a href="news.html">News</a>
+        </nav>
+        <div class="header-actions">
+            <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en-IN&ref=GRO_28502_CGKN7&utm_source=default" target="_blank" rel="noopener sponsored" class="btn btn-gold btn-sm"><i class="fa-solid fa-arrow-up-right-from-square"></i> Join Binance</a>
+            <button class="mobile-toggle" id="mobileToggle"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </div></header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header"><div class="logo">Epicenter<span>Exchange</span></div><button class="mobile-menu-close" id="mobileClose"><i class="fa-solid fa-xmark"></i></button></div>
+        <div class="mobile-menu-links"><a href="index.html">Home</a><a href="market.html">Market</a><a href="heatmap.html">Heatmap</a><a href="converter.html">Converter</a><a href="portfolio.html">Portfolio</a><a href="watchlist.html">Watchlist</a><a href="compare.html">Compare</a><a href="news.html">News</a></div>
+        <div class="mobile-menu-cta"><a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en-IN&ref=GRO_28502_CGKN7&utm_source=default" target="_blank" rel="noopener sponsored" class="btn btn-gold">Join Binance</a></div>
+    </div>
+
+    <section class="page-hero"><div class="container">
+        <div class="breadcrumbs"><a href="index.html">Home</a> &gt; <span>Portfolio Tracker</span></div>
+        <h1>Cryptocurrency Portfolio Tracker</h1>
+        <p>Track your Bitcoin, Ethereum, and cryptocurrency holdings. Monitor profit/loss, calculate returns, and analyze your investment performance.</p>
+    </div></section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="portfolio-wrapper">
+                <div>
+                    <div class="portfolio-header">
+                        <h2 style="margin-top:0;color:var(--text-white);">Portfolio Summary</h2>
+                        <div class="portfolio-summary">
+                            <div class="portfolio-stat">
+                                <label>Total Value</label>
+                                <value id="totalValue">$0.00</value>
+                            </div>
+                            <div class="portfolio-stat">
+                                <label>Total Invested</label>
+                                <value id="totalInvested">$0.00</value>
+                            </div>
+                            <div class="portfolio-stat">
+                                <label>Profit/Loss</label>
+                                <value id="totalProfitLoss">$0.00</value>
+                            </div>
+                            <div class="portfolio-stat">
+                                <label>Return %</label>
+                                <value id="totalReturn">0.00%</value>
+                            </div>
+                        </div>
+                        <button class="portfolio-btn" onclick="Portfolio.openModal()"><i class="fa-solid fa-plus"></i> Add Holding</button>
+                    </div>
+
+                    <div class="portfolio-table">
+                        <div class="portfolio-table-header">
+                            <div>Coin</div>
+                            <div>Amount</div>
+                            <div>Price</div>
+                            <div>Value</div>
+                            <div>Invested</div>
+                            <div>Actions</div>
+                        </div>
+                        <div id="portfolioList"></div>
+                    </div>
+
+                    <div id="portfolioEmpty" class="portfolio-empty">
+                        <i class="fa-solid fa-wallet" style="font-size:3rem;color:var(--text-muted);margin-bottom:12px;display:block;"></i>
+                        <p>No holdings yet. Click "Add Holding" to start tracking your portfolio.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="ad-container ad-sidebar-box"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6484525483464374" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add/Edit Modal -->
+    <div class="portfolio-modal" id="portfolioModal">
+        <div class="portfolio-modal-content">
+            <div class="portfolio-modal-header">
+                <h3 id="modalTitle">Add Holding</h3>
+                <button class="portfolio-modal-close" onclick="Portfolio.closeModal()">×</button>
+            </div>
+            <form id="portfolioForm" onsubmit="Portfolio.saveHolding(event)">
+                <div class="form-group">
+                    <label>Cryptocurrency</label>
+                    <select id="holdingCoin" required>
+                        <option value="bitcoin">Bitcoin (BTC)</option>
+                        <option value="ethereum">Ethereum (ETH)</option>
+                        <option value="binancecoin">BNB</option>
+                        <option value="cardano">Cardano (ADA)</option>
+                        <option value="solana">Solana (SOL)</option>
+                        <option value="xrp">Ripple (XRP)</option>
+                        <option value="polkadot">Polkadot (DOT)</option>
+                        <option value="litecoin">Litecoin (LTC)</option>
+                        <option value="dogecoin">Dogecoin (DOGE)</option>
+                        <option value="avalanche-2">Avalanche (AVAX)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input type="number" id="holdingAmount" step="0.00000001" placeholder="0.5" required>
+                </div>
+                <div class="form-group">
+                    <label>Buy Price (USD)</label>
+                    <input type="number" id="holdingPrice" step="0.01" placeholder="45000" required>
+                </div>
+                <div class="form-group">
+                    <label>Buy Date</label>
+                    <input type="date" id="holdingDate" required>
+                </div>
+                <button type="submit" class="portfolio-btn">Save Holding</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="site-footer"><div class="container">
+        <div class="footer-disclosure"><strong>Disclaimer:</strong> Portfolio values are based on current prices and your input data. Not investment advice.</div>
+        <div class="footer-grid">
+            <div class="footer-brand"><div class="logo">Epicenter<span>Exchange</span></div><p>Track cryptocurrency investments with real-time prices.</p></div>
+            <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="market.html">Market</a></li><li><a href="converter.html">Converter</a></li><li><a href="portfolio.html">Portfolio</a></li></ul></div>
+            <div class="footer-col"><h4>Legal</h4><ul><li><a href="privacy-policy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Epicenter Exchange. All rights reserved.</p></div>
+    </div></footer>
+
+    <button class="back-to-top" id="backToTop"><i class="fa-solid fa-chevron-up"></i></button>
+    <script src="js/main.js"></script>
+    <script src="js/alerts.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/fear-greed.js"></script>
+    <script src="js/portfolio.js"></script>
+</body>
+</html>
